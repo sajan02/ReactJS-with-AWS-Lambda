@@ -1,0 +1,40 @@
+API Gateway -
+    -   Rest API section.
+    -   Create API
+    -   Name API, set method, response.
+    -   Deploy
+    -   Test deployed API
+
+Services -
+APP -   S3 (Simple Storage service) : Simple file storage, can be config to access the static files
+API Gateway -   REST API : API Gateway (requests, methods, responses)
+Functions - AWS lambda : Hold all the business logic, execute code on demand
+Data -  DynamoDB (WIP) : Store, and retrieve data
+Authentication -  Cognito : Authenticate users
+Authorization (WIP) - IAM
+DNS -   Route 53 : Translate URL  (free SSL)
+Caching - CloudFront (WIP), AWS Redis : Improve performance by caching the static files at diff locations
+Logging - CloudeWatch
+
+API Gateway
+    -   Define API Endpoints & HTTP Methods, Authorize access
+    -   Triger an action, or trigger an AWS lambda func, directly acces some AWS service
+    -   Resource, Method, CORS, Proxy, Method Request, Response.
+    -   Body Mappping Templates (vimp) - use to map request/response data
+
+AWS lambda
+    -   Service which allow to host code on it (processing and forward)
+    -   Eg. Request(upload photo) -> AWS Lambda (Pocess using ML) -> Store in S3
+    -   Usecases -> s3(file gets upload), CloudWatch (scheduled - CRON job)
+    -   Suported lang -> Python, Node JS, C#, Java, Go
+    -   Can interact with other AWS service, and pass on the response
+    -   If we set lambda proxy, we pass complete reqquest object to lambda func, it also by passes the Integration response.
+
+CloudeWatch
+    -   Store logs, can acces log in `log groups`
+
+Model schema -
+    ref -http://json-schema.org/learn/getting-started-step-by-step.html
+
+Validation -
+

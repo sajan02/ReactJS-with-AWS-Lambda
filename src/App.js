@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import UserTable from './UserTable';
+import moment from 'moment';
+import { showFullScreenSpinner, showUserDetailsForm } from './Util/modalUtil';
+import FontAwesomeIcon from 'react-fontawesome';
+import { postUserDetail } from './service';
+
+const dummyData = 
+{
+  "name": "Sajan Kashi",
+  "createdAt": moment(new Date()).format('LL'),
+  "status": "Pending",
+  "email": "lsd@lputech.edu"
+}
 
 function App() {
+  const [data, setstate] = useState([]);
+
+  const onClickCreate = () => {
+    showUserDetailsForm(async (userDetail) => {
+      let resp = await postUserDetail(userDetail);
+      setstate([...data, { ...resp, createdAt: moment(new Date()).format('LL')}])
+    })
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container'>
+        <div className="jumbotron" style={{ padding: '10px'}}>
+          <h1 className="display-4">Demo v1</h1>
+          <p className="lead">This is a simple ReactJS application to Demo the usecase with AWS API Gateway and AWS lambda functions </p>
+          <hr className="my-4"/>
+          <button className='btn btn-primary' onClick={onClickCreate}>{`Create User`}</button>
+          </div>
+        <UserTable data={data}/>
+      </div>
     </div>
   );
 }
