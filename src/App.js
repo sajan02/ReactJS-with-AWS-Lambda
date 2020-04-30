@@ -20,7 +20,8 @@ function App() {
   const onClickCreate = () => {
     showUserDetailsForm(async (userDetail) => {
       let resp = await showFullScreenSpinner(async (_) => await postUserDetail(userDetail))
-      if (resp) setstate([...data, { ...resp, createdAt: moment(new Date()).format('LL')}])
+      if (resp && resp.data) setstate([...data, { ...resp.data,
+        createdAt: resp.data.updatedAt && moment(resp.data.updatedAt).format('LL') }]);
     })
   }
   return (
