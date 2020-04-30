@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import UserTable from './UserTable';
 import moment from 'moment';
 import { showFullScreenSpinner, showUserDetailsForm } from './Util/modalUtil';
-import FontAwesomeIcon from 'react-fontawesome';
 import { postUserDetail } from './service';
 
+// Dummydata for reference
 const dummyData = 
 {
   "name": "Sajan Kashi",
@@ -19,8 +19,8 @@ function App() {
 
   const onClickCreate = () => {
     showUserDetailsForm(async (userDetail) => {
-      let resp = await postUserDetail(userDetail);
-      setstate([...data, { ...resp, createdAt: moment(new Date()).format('LL')}])
+      let resp = await showFullScreenSpinner(async (_) => await postUserDetail(userDetail))
+      if (resp) setstate([...data, { ...resp, createdAt: moment(new Date()).format('LL')}])
     })
   }
   return (
