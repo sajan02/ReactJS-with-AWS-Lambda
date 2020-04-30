@@ -1,9 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import FullScreenSpinner from "../Spinner";
-import Modal from "../Modal";
-import UserDetailForm from "../UserDetailForm";
-
+import { Modal, UserDetailForm, Spinner } from "../Component";
 
 // Blurs the childrens in the body
 export const blurChildren = (body, blur) => {
@@ -81,7 +78,7 @@ export const showModal = async (
 export const showFullScreenSpinner = async (fn, parentId = "") =>
 showDialogAsync(
   (resolve, reject) => (
-    <FullScreenSpinner
+    <Spinner
       functionReturningPromise={fn}
       onResolve={resolve}
       onReject={reject}

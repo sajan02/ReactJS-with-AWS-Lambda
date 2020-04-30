@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import UserTable from './UserTable';
+import { UserTable } from './Component';
 import moment from 'moment';
 import { showFullScreenSpinner, showUserDetailsForm } from './Util/modalUtil';
 import { postUserDetail } from './service';

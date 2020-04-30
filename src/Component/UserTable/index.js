@@ -1,5 +1,5 @@
 import React from 'react';
-import './userTable.css';
+import './index.css';
 
 /**
  * 

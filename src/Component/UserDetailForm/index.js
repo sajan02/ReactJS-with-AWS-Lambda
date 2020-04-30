@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import { triggerCloseModal } from '../Util/modalUtil';
+import { triggerCloseModal } from '../../Util/modalUtil';
 
 export default function UserDetailForm(props) {
 

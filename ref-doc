@@ -36,5 +36,20 @@ CloudeWatch
 Model schema -
     ref -http://json-schema.org/learn/getting-started-step-by-step.html
 
-Validation -
+Mapping Template - 
+    apache velocity lang
 
+Validation -
+    using Mapping Templates
+
+DynamoDB - NoSQL DB provided by AWS, no server needed (no provisioning)
+    Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
+    DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database 
+    so that you don't have to worry about hardware provisioning, setup and configuration, replication, software patching, or cluster scaling
+    Concepts :
+        - Partition Key (unique key to uniquely identify the document), Primary key
+        - Attributes
+        - Primary Key => Partition Key or Partition Key + Sort Key
+        - Global secondary Index - Manages selected attributes in special way (makes query fast, efficient)
+        - Local Secondary Index - Partion key + Attribute (brings lot of flexibility)
+    Basic Functionality - Works as Repository and Event Functions to trigger lambda.
