@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Modal, UserDetailForm, Spinner } from "../Component";
+import { Modal, UserDetailForm, Spinner, Alert } from "../Component";
 
 // Blurs the childrens in the body
 export const blurChildren = (body, blur) => {
@@ -112,6 +112,30 @@ export const showUserDetailsForm = async (
       "",
       "",
       "user-detail-form-modal",
+      null,
+      title
+    );
+  
+  export const showAlertModal = async (
+    {
+      type = "confirmation",
+      title = "Alert",
+      primaryText = '',
+      secondaryText = '',
+      onConfirm = null,
+      onCancel = null,
+      secondaryContext = '',
+      primaryContext = ''
+    }
+  ) =>
+    showModal(
+      <Alert type={type} message={{ primaryText, secondaryText }}
+      secondaryContext={secondaryContext} primaryContext={primaryContext}
+        onCancel={onCancel} onConfirm={onConfirm} onYes={onConfirm}/>,
+      "alert-modal",
+      "",
+      "",
+      "custom-modal--alert",
       null,
       title
     );

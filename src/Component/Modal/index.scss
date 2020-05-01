@@ -82,6 +82,7 @@
     width: 410px;
     padding: 15px;
     @include base-custom-modal;
+    left: 0%;
     word-break: break-word;
 
     .custom-modal-title {

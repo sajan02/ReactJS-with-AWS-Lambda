@@ -1,0 +1,11 @@
+.alert-container {
+    
+    &__p {
+        text-align: justify;
+    }
+
+    .action-btn {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

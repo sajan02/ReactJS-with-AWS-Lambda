@@ -52,4 +52,6 @@ DynamoDB - NoSQL DB provided by AWS, no server needed (no provisioning)
         - Primary Key => Partition Key or Partition Key + Sort Key
         - Global secondary Index - Manages selected attributes in special way (makes query fast, efficient)
         - Local Secondary Index - Partion key + Attribute (brings lot of flexibility)
-    Basic Functionality - Works as Repository and Event Functions to trigger lambda.
+    - Basic Functionality - Works as Repository and Event Functions to trigger lambda.
+    - Can set TTL atrribute to remove entry at mentioned time(epoch format)
+    - aws-sdk is provided as default in every lambda function
