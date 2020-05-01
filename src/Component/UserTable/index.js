@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import moment from 'moment';
 
 /**
  * 
@@ -12,18 +13,18 @@ export default function UserTable(props) {
         <tr key={`tr-${index}`}>
             <td scope="row">{index+1}</td>
             <td>{data.name}</td>
-            <td>{data.createdAt}</td>
             <td>{data.status}</td>
             <td>{data.email}</td>
+            <td>{moment(data.updatedAt).format('LL')}</td>
             <td>
               <button className='btn btn-primary m-1' onClick={async _ => {
                   if (onEdit) {
-                    await onEdit(index);
+                    await onEdit({...data});
                   }
               }}>Edit</button>
               <button className='btn btn-danger m-1' onClick={async _ => {
                   if (onDelete) {
-                    await onDelete(index);
+                    await onDelete({ userId: data.userId, updatedAt: data.updatedAt });
                   }
               }}>Delete</button>
             </td>
@@ -35,9 +36,9 @@ export default function UserTable(props) {
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Created</th>
                   <th scope="col">Status</th>
                   <th scope="col">Email</th>
+                  <th scope="col">Created At</th>
                   <th scope="col">Action</th>
                 </tr>
             </thead>

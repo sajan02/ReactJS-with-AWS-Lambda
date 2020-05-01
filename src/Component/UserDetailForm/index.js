@@ -10,12 +10,12 @@ export default function UserDetailForm(props) {
         {
             name: "name",
             value: state.name,
-            placeholder: 'Name'
+            placeholder: 'Name',
         },
         {
             name: "status",
             value: state.status,
-            placeholder: 'Pending'
+            placeholder: 'Pending',
         },
         {
             name: "email",
@@ -35,7 +35,8 @@ export default function UserDetailForm(props) {
     }
     const submitDetail = async () => {
         triggerCloseModal();
-        props.callback && await props.callback({ ...state, updatedAt: new Date() });
+        const { userId, updatedAt } = props.userDetails
+        props.callback && await props.callback({ ...state, userId, updatedAt });
     }
     return (
         <div className='container'>
